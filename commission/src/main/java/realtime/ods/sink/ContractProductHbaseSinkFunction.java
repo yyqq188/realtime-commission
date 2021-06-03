@@ -1,0 +1,187 @@
+package realtime.ods.sink;
+
+import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.util.Bytes;
+import realtime.ods.entity.ContractProduct;
+
+/**
+ * @author zy
+ * @version 1.0
+ * @description:
+ * @date 2021/6/2 13:34
+ */
+public class ContractProductHbaseSinkFunction extends AbstractHbaseSinkFunction<ContractProduct>{
+    public ContractProductHbaseSinkFunction(){
+        tableName = "t_contract_product";
+    }
+    @Override
+    public void handle(ContractProduct value, Context context, HTable table) throws Exception {
+        Put put =new Put(Bytes.toBytes(value.getItem_id()));
+        put.addColumn(cf, Bytes.toBytes("master_id"), Bytes.toBytes(value.getMaster_id()));
+        put.addColumn(cf, Bytes.toBytes("policy_id"), Bytes.toBytes(value.getPolicy_id()));
+        put.addColumn(cf, Bytes.toBytes("product_id"), Bytes.toBytes(value.getProduct_id()));
+        put.addColumn(cf, Bytes.toBytes("amount"), Bytes.toBytes(value.getAmount()));
+        put.addColumn(cf, Bytes.toBytes("unit"), Bytes.toBytes(value.getUnit()));
+        put.addColumn(cf, Bytes.toBytes("apply_date"), Bytes.toBytes(value.getApply_date()));
+        put.addColumn(cf, Bytes.toBytes("expiry_date"), Bytes.toBytes(value.getExpiry_date()));
+        put.addColumn(cf, Bytes.toBytes("validate_date"), Bytes.toBytes(value.getValidate_date()));
+        put.addColumn(cf, Bytes.toBytes("paidup_date"), Bytes.toBytes(value.getPaidup_date()));
+        put.addColumn(cf, Bytes.toBytes("liability_state"), Bytes.toBytes(value.getLiability_state()));
+        put.addColumn(cf, Bytes.toBytes("end_cause"), Bytes.toBytes(value.getEnd_cause()));
+        put.addColumn(cf, Bytes.toBytes("initial_type"), Bytes.toBytes(value.getInitial_type()));
+        put.addColumn(cf, Bytes.toBytes("renewal_type"), Bytes.toBytes(value.getRenewal_type()));
+        put.addColumn(cf, Bytes.toBytes("charge_period"), Bytes.toBytes(value.getCharge_period()));
+        put.addColumn(cf, Bytes.toBytes("charge_year"), Bytes.toBytes(value.getCharge_year()));
+        put.addColumn(cf, Bytes.toBytes("coverage_period"), Bytes.toBytes(value.getCoverage_period()));
+        put.addColumn(cf, Bytes.toBytes("coverage_year"), Bytes.toBytes(value.getCoverage_year()));
+        put.addColumn(cf, Bytes.toBytes("short_end_time"), Bytes.toBytes(value.getShort_end_time()));
+        put.addColumn(cf, Bytes.toBytes("except_value"), Bytes.toBytes(value.getExcept_value()));
+        put.addColumn(cf, Bytes.toBytes("benefit_level"), Bytes.toBytes(value.getBenefit_level()));
+        put.addColumn(cf, Bytes.toBytes("insured_category"), Bytes.toBytes(value.getInsured_category()));
+        put.addColumn(cf, Bytes.toBytes("decision_id"), Bytes.toBytes(value.getDecision_id()));
+        put.addColumn(cf, Bytes.toBytes("suspend"), Bytes.toBytes(value.getSuspend()));
+        put.addColumn(cf, Bytes.toBytes("suspend_cause"), Bytes.toBytes(value.getSuspend_cause()));
+        put.addColumn(cf, Bytes.toBytes("pay_mode"), Bytes.toBytes(value.getPay_mode()));
+        put.addColumn(cf, Bytes.toBytes("expiry_cash_value"), Bytes.toBytes(value.getExpiry_cash_value()));
+        put.addColumn(cf, Bytes.toBytes("count_way"), Bytes.toBytes(value.getCount_way()));
+        put.addColumn(cf, Bytes.toBytes("renew_decision"), Bytes.toBytes(value.getRenew_decision()));
+        put.addColumn(cf, Bytes.toBytes("bonus_sa"), Bytes.toBytes(value.getBonus_sa()));
+        put.addColumn(cf, Bytes.toBytes("pay_next"), Bytes.toBytes(value.getPay_next()));
+        put.addColumn(cf, Bytes.toBytes("origin_sa"), Bytes.toBytes(value.getOrigin_sa()));
+        put.addColumn(cf, Bytes.toBytes("origin_bonus_sa"), Bytes.toBytes(value.getOrigin_bonus_sa()));
+        put.addColumn(cf, Bytes.toBytes("anni_balance"), Bytes.toBytes(value.getAnni_balance()));
+        put.addColumn(cf, Bytes.toBytes("fix_increment"), Bytes.toBytes(value.getFix_increment()));
+        put.addColumn(cf, Bytes.toBytes("cpf_cost"), Bytes.toBytes(value.getCpf_cost()));
+        put.addColumn(cf, Bytes.toBytes("cash_cost"), Bytes.toBytes(value.getCash_cost()));
+        put.addColumn(cf, Bytes.toBytes("derivation"), Bytes.toBytes(value.getDerivation()));
+        put.addColumn(cf, Bytes.toBytes("risk_code"), Bytes.toBytes(value.getRisk_code()));
+        put.addColumn(cf, Bytes.toBytes("exposure_rate"), Bytes.toBytes(value.getExposure_rate()));
+        put.addColumn(cf, Bytes.toBytes("reins_rate"), Bytes.toBytes(value.getReins_rate()));
+        put.addColumn(cf, Bytes.toBytes("next_amount"), Bytes.toBytes(value.getNext_amount()));
+        put.addColumn(cf, Bytes.toBytes("waiver_start"), Bytes.toBytes(value.getWaiver_start()));
+        put.addColumn(cf, Bytes.toBytes("waiver_end"), Bytes.toBytes(value.getWaiver_end()));
+        put.addColumn(cf, Bytes.toBytes("auto_permnt_lapse"), Bytes.toBytes(value.getAuto_permnt_lapse()));
+        put.addColumn(cf, Bytes.toBytes("permnt_lapse_notice_date"), Bytes.toBytes(value.getPermnt_lapse_notice_date()));
+        put.addColumn(cf, Bytes.toBytes("master_product"), Bytes.toBytes(value.getMaster_product()));
+        put.addColumn(cf, Bytes.toBytes("waiver"), Bytes.toBytes(value.getWaiver()));
+        put.addColumn(cf, Bytes.toBytes("waived_sa"), Bytes.toBytes(value.getWaived_sa()));
+        put.addColumn(cf, Bytes.toBytes("issue_agent"), Bytes.toBytes(value.getIssue_agent()));
+        put.addColumn(cf, Bytes.toBytes("strategy_code"), Bytes.toBytes(value.getStrategy_code()));
+        put.addColumn(cf, Bytes.toBytes("loan_type"), Bytes.toBytes(value.getLoan_type()));
+        put.addColumn(cf, Bytes.toBytes("ben_period_type"), Bytes.toBytes(value.getBen_period_type()));
+        put.addColumn(cf, Bytes.toBytes("benefit_period"), Bytes.toBytes(value.getBenefit_period()));
+        put.addColumn(cf, Bytes.toBytes("gurnt_start_date"), Bytes.toBytes(value.getGurnt_start_date()));
+        put.addColumn(cf, Bytes.toBytes("gurnt_perd_type"), Bytes.toBytes(value.getGurnt_perd_type()));
+        put.addColumn(cf, Bytes.toBytes("gurnt_period"), Bytes.toBytes(value.getGurnt_period()));
+        put.addColumn(cf, Bytes.toBytes("invest_horizon"), Bytes.toBytes(value.getInvest_horizon()));
+        put.addColumn(cf, Bytes.toBytes("manual_sa"), Bytes.toBytes(value.getManual_sa()));
+        put.addColumn(cf, Bytes.toBytes("defer_period"), Bytes.toBytes(value.getDefer_period()));
+        put.addColumn(cf, Bytes.toBytes("sa_factor"), Bytes.toBytes(value.getSa_factor()));
+        put.addColumn(cf, Bytes.toBytes("std_prem_bf"), Bytes.toBytes(value.getStd_prem_bf()));
+        put.addColumn(cf, Bytes.toBytes("discnt_prem_bf"), Bytes.toBytes(value.getDiscnt_prem_bf()));
+        put.addColumn(cf, Bytes.toBytes("discnted_prem_bf"), Bytes.toBytes(value.getDiscnted_prem_bf()));
+        put.addColumn(cf, Bytes.toBytes("policy_fee_bf"), Bytes.toBytes(value.getPolicy_fee_bf()));
+        put.addColumn(cf, Bytes.toBytes("extra_prem_bf"), Bytes.toBytes(value.getExtra_prem_bf()));
+        put.addColumn(cf, Bytes.toBytes("std_prem_af"), Bytes.toBytes(value.getStd_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("discnt_prem_af"), Bytes.toBytes(value.getDiscnt_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("policy_fee_af"), Bytes.toBytes(value.getPolicy_fee_af()));
+        put.addColumn(cf, Bytes.toBytes("gross_prem_af"), Bytes.toBytes(value.getGross_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("extra_prem_af"), Bytes.toBytes(value.getExtra_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("total_prem_af"), Bytes.toBytes(value.getTotal_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("std_prem_an"), Bytes.toBytes(value.getStd_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("discnt_prem_an"), Bytes.toBytes(value.getDiscnt_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("discnted_prem_an"), Bytes.toBytes(value.getDiscnted_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("policy_fee_an"), Bytes.toBytes(value.getPolicy_fee_an()));
+        put.addColumn(cf, Bytes.toBytes("extra_prem_an"), Bytes.toBytes(value.getExtra_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("next_std_prem_bf"), Bytes.toBytes(value.getNext_std_prem_bf()));
+        put.addColumn(cf, Bytes.toBytes("next_discnt_prem_bf"), Bytes.toBytes(value.getNext_discnt_prem_bf()));
+        put.addColumn(cf, Bytes.toBytes("next_discnted_prem_bf"), Bytes.toBytes(value.getNext_discnted_prem_bf()));
+        put.addColumn(cf, Bytes.toBytes("next_policy_fee_bf"), Bytes.toBytes(value.getNext_policy_fee_bf()));
+        put.addColumn(cf, Bytes.toBytes("next_extra_prem_bf"), Bytes.toBytes(value.getNext_extra_prem_bf()));
+        put.addColumn(cf, Bytes.toBytes("next_std_prem_af"), Bytes.toBytes(value.getNext_std_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("next_discnt_prem_af"), Bytes.toBytes(value.getNext_discnt_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("next_discnted_prem_af"), Bytes.toBytes(value.getNext_discnted_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("next_policy_fee_af"), Bytes.toBytes(value.getNext_policy_fee_af()));
+        put.addColumn(cf, Bytes.toBytes("next_gross_prem_af"), Bytes.toBytes(value.getNext_gross_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("next_extra_prem_af"), Bytes.toBytes(value.getNext_extra_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("next_total_prem_af"), Bytes.toBytes(value.getNext_total_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("next_std_prem_an"), Bytes.toBytes(value.getNext_std_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("next_discnt_prem_an"), Bytes.toBytes(value.getNext_discnt_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("next_discnted_prem_an"), Bytes.toBytes(value.getNext_discnted_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("next_policy_fee_an"), Bytes.toBytes(value.getNext_policy_fee_an()));
+        put.addColumn(cf, Bytes.toBytes("next_extra_prem_an"), Bytes.toBytes(value.getNext_extra_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("wait_period"), Bytes.toBytes(value.getWait_period()));
+        put.addColumn(cf, Bytes.toBytes("waiv_anul_benefit"), Bytes.toBytes(value.getWaiv_anul_benefit()));
+        put.addColumn(cf, Bytes.toBytes("waiv_anul_prem"), Bytes.toBytes(value.getWaiv_anul_prem()));
+        put.addColumn(cf, Bytes.toBytes("suspend_chg_id"), Bytes.toBytes(value.getSuspend_chg_id()));
+        put.addColumn(cf, Bytes.toBytes("lapse_cause"), Bytes.toBytes(value.getLapse_cause()));
+        put.addColumn(cf, Bytes.toBytes("prem_change_time"), Bytes.toBytes(value.getPrem_change_time()));
+        put.addColumn(cf, Bytes.toBytes("submission_date"), Bytes.toBytes(value.getSubmission_date()));
+        put.addColumn(cf, Bytes.toBytes("discnted_prem_af"), Bytes.toBytes(value.getDiscnted_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("policy_prem_source"), Bytes.toBytes(value.getPolicy_prem_source()));
+        put.addColumn(cf, Bytes.toBytes("ilp_calc_sa"), Bytes.toBytes(value.getIlp_calc_sa()));
+        put.addColumn(cf, Bytes.toBytes("actual_validate"), Bytes.toBytes(value.getActual_validate()));
+        put.addColumn(cf, Bytes.toBytes("entity_fund"), Bytes.toBytes(value.getEntity_fund()));
+        put.addColumn(cf, Bytes.toBytes("car_reg_no"), Bytes.toBytes(value.getCar_reg_no()));
+        put.addColumn(cf, Bytes.toBytes("manu_surr_value"), Bytes.toBytes(value.getManu_surr_value()));
+        put.addColumn(cf, Bytes.toBytes("p_lapse_date"), Bytes.toBytes(value.getP_lapse_date()));
+        put.addColumn(cf, Bytes.toBytes("next_count_way"), Bytes.toBytes(value.getNext_count_way()));
+        put.addColumn(cf, Bytes.toBytes("next_unit"), Bytes.toBytes(value.getNext_unit()));
+        put.addColumn(cf, Bytes.toBytes("initial_vali_date"), Bytes.toBytes(value.getInitial_vali_date()));
+        put.addColumn(cf, Bytes.toBytes("age_increase_indi"), Bytes.toBytes(value.getAge_increase_indi()));
+        put.addColumn(cf, Bytes.toBytes("paidup_option"), Bytes.toBytes(value.getPaidup_option()));
+        put.addColumn(cf, Bytes.toBytes("last_statement_date"), Bytes.toBytes(value.getLast_statement_date()));
+        put.addColumn(cf, Bytes.toBytes("insur_prem_af"), Bytes.toBytes(value.getInsur_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("insur_prem_an"), Bytes.toBytes(value.getInsur_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("next_insur_prem_af"), Bytes.toBytes(value.getNext_insur_prem_af()));
+        put.addColumn(cf, Bytes.toBytes("next_insur_prem_an"), Bytes.toBytes(value.getNext_insur_prem_an()));
+        put.addColumn(cf, Bytes.toBytes("origin_product_id"), Bytes.toBytes(value.getOrigin_product_id()));
+        put.addColumn(cf, Bytes.toBytes("car_reg_no_start"), Bytes.toBytes(value.getCar_reg_no_start()));
+        put.addColumn(cf, Bytes.toBytes("phd_period"), Bytes.toBytes(value.getPhd_period()));
+        put.addColumn(cf, Bytes.toBytes("pre_war_indi"), Bytes.toBytes(value.getPre_war_indi()));
+        put.addColumn(cf, Bytes.toBytes("waiver_claim_type"), Bytes.toBytes(value.getWaiver_claim_type()));
+        put.addColumn(cf, Bytes.toBytes("advantage_indi"), Bytes.toBytes(value.getAdvantage_indi()));
+        put.addColumn(cf, Bytes.toBytes("issue_date"), Bytes.toBytes(value.getIssue_date()));
+        put.addColumn(cf, Bytes.toBytes("ri_processed"), Bytes.toBytes(value.getRi_processed()));
+        put.addColumn(cf, Bytes.toBytes("risk_commence_date"), Bytes.toBytes(value.getRisk_commence_date()));
+        put.addColumn(cf, Bytes.toBytes("ems_version"), Bytes.toBytes(value.getEms_version()));
+        put.addColumn(cf, Bytes.toBytes("inserted_by"), Bytes.toBytes(value.getInserted_by()));
+        put.addColumn(cf, Bytes.toBytes("updated_by"), Bytes.toBytes(value.getUpdated_by()));
+        put.addColumn(cf, Bytes.toBytes("insert_time"), Bytes.toBytes(value.getInsert_time()));
+        put.addColumn(cf, Bytes.toBytes("update_time"), Bytes.toBytes(value.getUpdate_time()));
+        put.addColumn(cf, Bytes.toBytes("insert_timestamp"), Bytes.toBytes(value.getInsert_timestamp()));
+        put.addColumn(cf, Bytes.toBytes("update_timestamp"), Bytes.toBytes(value.getUpdate_timestamp()));
+        put.addColumn(cf, Bytes.toBytes("liability_state_cause"), Bytes.toBytes(value.getLiability_state_cause()));
+        put.addColumn(cf, Bytes.toBytes("liability_state_date"), Bytes.toBytes(value.getLiability_state_date()));
+        put.addColumn(cf, Bytes.toBytes("invest_scheme"), Bytes.toBytes(value.getInvest_scheme()));
+        put.addColumn(cf, Bytes.toBytes("tariff_type"), Bytes.toBytes(value.getTariff_type()));
+        put.addColumn(cf, Bytes.toBytes("indx_suspend_cause"), Bytes.toBytes(value.getIndx_suspend_cause()));
+        put.addColumn(cf, Bytes.toBytes("indx_type"), Bytes.toBytes(value.getIndx_type()));
+        put.addColumn(cf, Bytes.toBytes("indx_calc_basis"), Bytes.toBytes(value.getIndx_calc_basis()));
+        put.addColumn(cf, Bytes.toBytes("indx_indi"), Bytes.toBytes(value.getIndx_indi()));
+        put.addColumn(cf, Bytes.toBytes("cooling_off_option"), Bytes.toBytes(value.getCooling_off_option()));
+        put.addColumn(cf, Bytes.toBytes("postpone_period"), Bytes.toBytes(value.getPostpone_period()));
+        put.addColumn(cf, Bytes.toBytes("next_benefit_level"), Bytes.toBytes(value.getNext_benefit_level()));
+        put.addColumn(cf, Bytes.toBytes("travel_type"), Bytes.toBytes(value.getTravel_type()));
+        put.addColumn(cf, Bytes.toBytes("free_object"), Bytes.toBytes(value.getFree_object()));
+        put.addColumn(cf, Bytes.toBytes("ismortgage"), Bytes.toBytes(value.getIsmortgage()));
+        put.addColumn(cf, Bytes.toBytes("end_cause_desc"), Bytes.toBytes(value.getEnd_cause_desc()));
+        put.addColumn(cf, Bytes.toBytes("ph_ag_rela"), Bytes.toBytes(value.getPh_ag_rela()));
+        put.addColumn(cf, Bytes.toBytes("ph_ag_reladesc"), Bytes.toBytes(value.getPh_ag_reladesc()));
+        put.addColumn(cf, Bytes.toBytes("over_fl_cause"), Bytes.toBytes(value.getOver_fl_cause()));
+        put.addColumn(cf, Bytes.toBytes("over_fl_causedesc"), Bytes.toBytes(value.getOver_fl_causedesc()));
+        put.addColumn(cf, Bytes.toBytes("real_lapse_date"), Bytes.toBytes(value.getReal_lapse_date()));
+        put.addColumn(cf, Bytes.toBytes("next_due_date"), Bytes.toBytes(value.getNext_due_date()));
+        put.addColumn(cf, Bytes.toBytes("next_due_prem"), Bytes.toBytes(value.getNext_due_prem()));
+        put.addColumn(cf, Bytes.toBytes("uw_decision"), Bytes.toBytes(value.getUw_decision()));
+        put.addColumn(cf, Bytes.toBytes("claim_amount"), Bytes.toBytes(value.getClaim_amount()));
+        put.addColumn(cf, Bytes.toBytes("is_pledge"), Bytes.toBytes(value.getIs_pledge()));
+        put.addColumn(cf, Bytes.toBytes("uw_decision_channel"), Bytes.toBytes(value.getUw_decision_channel()));
+        put.addColumn(cf, Bytes.toBytes("all_add_amout"), Bytes.toBytes(value.getAll_add_amout()));
+        put.addColumn(cf, Bytes.toBytes("all_add_prem"), Bytes.toBytes(value.getAll_add_prem()));
+
+
+        table.put(put);
+    }
+}
