@@ -1,8 +1,8 @@
 package realtime.ods.hbasetable;
 
 import org.apache.flink.addons.hbase.HBaseTableSource;
-//import org.apache.flink.table.api.java.StreamTableEnvironment;
-import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+import org.apache.flink.table.api.java.StreamTableEnvironment;
+//import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 import org.apache.hadoop.conf.Configuration;
 
 /**

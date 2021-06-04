@@ -1,8 +1,8 @@
 package realtime.ods.hbasetable;
 
 import org.apache.flink.addons.hbase.HBaseTableSource;
-//import org.apache.flink.table.api.java.StreamTableEnvironment;
-import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+//import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+import org.apache.flink.table.api.java.StreamTableEnvironment;
 import org.apache.hadoop.conf.Configuration;
 
 /**
@@ -49,7 +49,7 @@ public class DefineContractBeneHbaseTable {
         hBaseTableSource.addColumn("f","expiry_date",String.class);
         tableEnv.registerFunction("lookup_list_id",hBaseTableSource.getLookupFunction(new String[]{"list_id"}));
 
-
+        tableEnv.registerTableSource("t_contract_bene",hBaseTableSource);
 
     }
 }
