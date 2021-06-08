@@ -82,15 +82,6 @@ public class Main {
 
 
 
-
-
-
-
-
-
-
-
-
         String kafkaUrl = env.getConfig().getGlobalJobParameters().toMap().getOrDefault("kafka.url","");
         Properties properties = new Properties();
         properties.setProperty("bootstrap.servers",kafkaUrl);
@@ -99,7 +90,13 @@ public class Main {
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
         JobDefine.contractBeneHbaseTableJob(env,properties,"test3");
+        //
+        //
+        //
+        //
 
+
+        //驱动关联
         env.execute("aa");
     }
 }

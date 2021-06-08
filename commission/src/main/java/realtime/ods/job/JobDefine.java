@@ -1,23 +1,19 @@
 package realtime.ods.job;
 
-import com.alibaba.fastjson.JSONObject;
-import org.apache.flink.api.common.serialization.SimpleStringSchema;
-import org.apache.flink.api.common.time.Time;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
-import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.functions.AscendingTimestampExtractor;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import java.util.Properties;
+
+import org.apache.flink.table.api.java.StreamTableEnvironment;
 import realtime.ods.entity.*;
-import realtime.ods.exec.MapKafkaRichFlatMapFunction;
+import realtime.ods.exec.MyJoinFunction;
 import realtime.ods.kafkaschema.AgentSchema;
 import realtime.ods.kafkaschema.BenefitInsuredSchema;
 import realtime.ods.kafkaschema.ContractBeneSchema;
 import realtime.ods.sink.AgentHbaseSinkFunction;
 import realtime.ods.sink.BenefitInsuredHbaseSinkFunction;
 import realtime.ods.sink.ContractBeneHbaseSinkFunction;
-import realtime.ods.sink.ContractExtendHbaseSinkFunction;
 
 /**
  * author: yhl
@@ -88,18 +84,21 @@ public class JobDefine {
 
 
 
-
-
-
-
-
-
-
-
-
     public static void contractBeneHbaseTableJob(StreamExecutionEnvironment env,Properties properties,String topic){
         DataStreamSource<ContractBene> source = env.addSource(new FlinkKafkaConsumer<>(topic, new ContractBeneSchema(), properties));
         source.addSink(new ContractBeneHbaseSinkFunction()).name("ContractBeneHbaseSinkFunction");
+    }
+
+
+
+
+
+
+    //驱动关联
+    public static void joinWithHbaseJob(StreamExecutionEnvironment env, StreamTableEnvironment tableEnv,Properties properties,String topic){
+        DataStreamSource<BenefitInsured> source = env.addSource(new FlinkKafkaConsumer<>(topic, new BenefitInsuredSchema(), properties));
+        tableEnv.createTemporaryView("driverTable",source);
+        new MyJoinFunction().handle(source,env,tableEnv);
     }
 
 

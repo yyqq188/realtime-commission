@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
  * time: 2021/6/3 下午1:57
  * company: gientech
  */
-public class MapKafkaStringRichFlatMapFunction<String> extends RichFlatMapFunction<String,String> {
+public class MapKafkaStringRichFlatMapFunction_bak<String> extends RichFlatMapFunction<String,String> {
 
     @Override
     public void flatMap(String value, Collector<String> out) throws Exception {

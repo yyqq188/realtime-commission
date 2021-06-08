@@ -18,7 +18,7 @@ import java.lang.reflect.Type;
 /**
  * 这里是把json结构的数据转化为java对象
  */
-public class MapKafkaRichFlatMapFunction<T> extends RichFlatMapFunction<String, T> {
+public class MapKafkaRichFlatMapFunction_bak<T> extends RichFlatMapFunction<String, T> {
     @Override
     public void flatMap(String value, Collector<T> collector) {
         try{
