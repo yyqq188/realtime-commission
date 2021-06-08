@@ -47,9 +47,10 @@ public class DefineContractBeneHbaseTable {
         hBaseTableSource.addColumn("f","certi_code",String.class);
         hBaseTableSource.addColumn("f","is_personal_tax_status",String.class);
         hBaseTableSource.addColumn("f","expiry_date",String.class);
-        tableEnv.registerFunction("lookup_list_id",hBaseTableSource.getLookupFunction(new String[]{"list_id"}));
 
         tableEnv.registerTableSource("t_contract_bene",hBaseTableSource);
+        tableEnv.registerFunction("lookup_list_id",hBaseTableSource.getLookupFunction(new String[]{"list_id"}));
+
 
     }
 }

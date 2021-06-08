@@ -36,7 +36,7 @@ public class File2Kafka2 {
 //        DataStreamSource<String> source = env.readTextFile(File2Kafka2.class
 //                .getResource("/T_AGENT_NEW.csv").getPath());
         DataStreamSource<String> source = env.readTextFile(
-                "/home/yhl/下载/realtime-commission/realtimecommssion-basedata/T_CONTRACT_BENE.csv");
+                Contrant.CONTRACTBENECsvPath);
 
         //这里输入的数据要和java的类型相匹配
         source.filter(data ->data.split(",").length== 32).map(data -> {
