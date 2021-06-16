@@ -35,11 +35,17 @@ public class File2Kafka2 {
 
 //        DataStreamSource<String> source = env.readTextFile(File2Kafka2.class
 //                .getResource("/T_AGENT_NEW.csv").getPath());
-        DataStreamSource<String> source = env.readTextFile(
-                Contrant.CONTRACTBENECsvPath);
+
+
+        //这里要改
+        DataStreamSource<String> source = env
+//                .readTextFile(Contrant.CONTRACTBENECsvPath);
+                .readTextFile(Contrant.PREM_ARAPCsvPath);
 
         //这里输入的数据要和java的类型相匹配
-        source.filter(data ->data.split(",").length== 32).map(data -> {
+        source
+//                .filter(data ->data.split(",").length== 32)
+                .map(data -> {
 
             String[] datas = data.replace("\"","").split(",");
             Field[] fields = ContractBene.class.getDeclaredFields();

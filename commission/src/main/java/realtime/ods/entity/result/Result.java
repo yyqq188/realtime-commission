@@ -13,7 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Result {
-    public Integer id;
-    public String name;
+    public String policy_id;
+    public String item_id;
+    public String discount_num;
 }
 

@@ -8,8 +8,8 @@ import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.EnvironmentSettings;
 
-import org.apache.flink.table.api.java.StreamTableEnvironment;
-//import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+//import org.apache.flink.table.api.java.StreamTableEnvironment;
+import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HConstants;
@@ -89,11 +89,11 @@ public class Main {
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
-        JobDefine.contractBeneHbaseTableJob(env,properties,"test3");
-        //
-        //
-        //
-        //
+//        JobDefine.contractBeneHbaseTableJob(env,properties,"test3");
+
+
+
+        JobDefine.premArapHbaseTableJob(env,properties,"test3");
 
 
         //驱动关联
