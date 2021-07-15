@@ -82,8 +82,8 @@ public class Main {
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
-//        JobDefine.contractBeneHbaseTableJob(env,properties,"test");
-        JobDefine.premArapHbaseTableJob(env,properties,"test");
+        JobDefine.contractBeneHbaseTableJob(env,properties,"test");
+        JobDefine.premArapHbaseTableJob(env,properties,"test2");
 
 
         //驱动关联

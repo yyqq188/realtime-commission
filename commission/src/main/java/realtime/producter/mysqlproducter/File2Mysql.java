@@ -45,10 +45,10 @@ public class File2Mysql {
                                 .withMaxRetries(5)
                                 .build(),
                         new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
-                                .withUrl("jdbc:mysql://localhost:3306/test")
+                                .withUrl("jdbc:mysql://10.114.10.92:3306/test")
                                 .withDriverName("com.mysql.jdbc.Driver")
                                 .withUsername("root")
-                                .withPassword("juhuacha188")
+                                .withPassword("000000")
                                 .build()
                 ));
         env.execute("a");

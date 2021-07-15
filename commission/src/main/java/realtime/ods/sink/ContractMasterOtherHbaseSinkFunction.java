@@ -75,7 +75,7 @@ public class ContractMasterOtherHbaseSinkFunction extends AbstractHbaseSinkFunct
         put.addColumn(cf, Bytes.toBytes("service_persion"), Bytes.toBytes(value.getService_persion()));
         put.addColumn(cf, Bytes.toBytes("oldservice_type"), Bytes.toBytes(value.getOldservice_type()));
         put.addColumn(cf, Bytes.toBytes("stchangedate"), Bytes.toBytes(value.getStchangedate()));
-        put.addColumn(cf, Bytes.toBytes("bank_private"), Bytes.toBytes(value.getBank_private()));
+        put.addColumn(cf, Bytes.toBytes("bank_public"), Bytes.toBytes(value.getBank_public()));
         put.addColumn(cf, Bytes.toBytes("insurance_source"), Bytes.toBytes(value.getInsurance_source()));
         put.addColumn(cf, Bytes.toBytes("is_pre_reg"), Bytes.toBytes(value.getIs_pre_reg()));
         put.addColumn(cf, Bytes.toBytes("prem_col_date"), Bytes.toBytes(value.getPrem_col_date()));
