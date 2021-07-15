@@ -1,4 +1,4 @@
-package realtime.ods.kafkaproducter;
+package realtime.producter.kafkaproducter;
 
 import org.apache.flink.streaming.connectors.kafka.KafkaSerializationSchema;
 import org.apache.kafka.clients.producer.ProducerRecord;

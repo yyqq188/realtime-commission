@@ -11,6 +11,8 @@
     <modules>
         <module>commission</module>
         <module>refer</module>
+        <module>sqlparser</module>
+        <module>myblink-sql</module>
     </modules>
 
 

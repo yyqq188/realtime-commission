@@ -15,26 +15,26 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PolicyProducerRole implements Serializable {
-    private String role_id;
-    private String policy_id;
-    private String item_id;
-    private String producer_role;
-    private String producer_id;
-    private String producer_position;
-    private String active_indi;
-    private String assign_rate;
-    private String start_date;
-    private String end_date;
-    private String hierarchy_date;
-    private String change_id;
-    private String policy_chg_id;
-    private String change_type;
-    private String inserted_by;
-    private String updated_by;
-    private String insert_time;
-    private String update_time;
-    private String insert_timestamp;
-    private String update_timestamp;
-    private String change_comment;
-    private String pre_change_id;
+    public String role_id;
+    public String policy_id;
+    public String item_id;
+    public String producer_role;
+    public String producer_id;
+    public String producer_position;
+    public String active_indi;
+    public String assign_rate;
+    public String start_date;
+    public String end_date;
+    public String hierarchy_date;
+    public String change_id;
+    public String policy_chg_id;
+    public String change_type;
+    public String inserted_by;
+    public String updated_by;
+    public String insert_time;
+    public String update_time;
+    public String insert_timestamp;
+    public String update_timestamp;
+    public String change_comment;
+    public String pre_change_id;
 }

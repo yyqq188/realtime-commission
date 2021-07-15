@@ -148,6 +148,8 @@ public class DefineAgentHbaseTable {
         hBaseTableSource.addColumn("f","contract_agent_control",String.class);
         hBaseTableSource.addColumn("f","escrow_code",String.class);
 
-        tableEnv.registerFunction("lookup_agent_id",hBaseTableSource.getLookupFunction(new String[]{"agent_id"}));
+//        tableEnv.registerFunction("lookup_agent_id",hBaseTableSource.getLookupFunction(new String[]{"agent_id"}));
+        tableEnv.createTemporarySystemFunction("lookup_agent_id",hBaseTableSource.getLookupFunction(new String[]{"agent_id"}));
+
     }
 }

@@ -15,23 +15,23 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContractExtend implements Serializable {
-    private String item_id;
-    private String due_date;
-    private String policy_year;
-    private String policy_period;
-    private String strgy_due_date;
-    private String prem_status;
-    private String sa_due_date;
-    private String ems_version;
-    private String inserted_by;
-    private String updated_by;
-    private String insert_time;
-    private String update_time;
-    private String insert_timestamp;
-    private String update_timestamp;
-    private String policy_id;
-    private String billing_date;
-    private String reminder_date;
-    private String indx_due_date;
-    private String indx_reject;
+    public String item_id;
+    public String due_date;
+    public String policy_year;
+    public String policy_period;
+    public String strgy_due_date;
+    public String prem_status;
+    public String sa_due_date;
+    public String ems_version;
+    public String inserted_by;
+    public String updated_by;
+    public String insert_time;
+    public String update_time;
+    public String insert_timestamp;
+    public String update_timestamp;
+    public String policy_id;
+    public String billing_date;
+    public String reminder_date;
+    public String indx_due_date;
+    public String indx_reject;
 }

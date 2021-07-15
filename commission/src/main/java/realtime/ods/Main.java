@@ -30,13 +30,13 @@ public class Main {
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         EnvironmentSettings settings = EnvironmentSettings.newInstance().useBlinkPlanner().build();
         StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env, settings);
-        env.enableCheckpointing(60000, CheckpointingMode.EXACTLY_ONCE);
+//        env.enableCheckpointing(60000, CheckpointingMode.EXACTLY_ONCE);
         env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
-        CheckpointConfig checkpointConfig = env.getCheckpointConfig();
-        checkpointConfig.enableExternalizedCheckpoints(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
-        checkpointConfig.setTolerableCheckpointFailureNumber(0);
+//        CheckpointConfig checkpointConfig = env.getCheckpointConfig();
+//        checkpointConfig.enableExternalizedCheckpoints(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
+//        checkpointConfig.setTolerableCheckpointFailureNumber(0);
 
-        env.getConfig().setAutoWatermarkInterval(60000);
+//        env.getConfig().setAutoWatermarkInterval(60000);
         //配置参数
         Map<String,String> map = new HashMap<>();
         map.put("kafka.url", "localhost:9092");
@@ -75,13 +75,6 @@ public class Main {
 
         System.out.println("+++++++++++++++++++++++++++++++++++++++++++++");
 
-
-
-
-
-
-
-
         String kafkaUrl = env.getConfig().getGlobalJobParameters().toMap().getOrDefault("kafka.url","");
         Properties properties = new Properties();
         properties.setProperty("bootstrap.servers",kafkaUrl);
@@ -89,11 +82,8 @@ public class Main {
         properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
-//        JobDefine.contractBeneHbaseTableJob(env,properties,"test3");
-
-
-
-        JobDefine.premArapHbaseTableJob(env,properties,"test3");
+//        JobDefine.contractBeneHbaseTableJob(env,properties,"test");
+        JobDefine.premArapHbaseTableJob(env,properties,"test");
 
 
         //驱动关联

@@ -1,4 +1,4 @@
-package realtime.ods.kafkaproducter;
+package realtime.producter.kafkaproducter;
 
 /**
  * author: yhl

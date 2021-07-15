@@ -17,7 +17,6 @@ public class ContractBeneHbaseSinkFunction extends AbstractHbaseSinkFunction<Con
     @Override
     public void handle(ContractBene value, Context context, HTable table) throws Exception {
         System.out.println("======================================================");
-        System.out.println(value);
         Put put = new Put(Bytes.toBytes(value.getList_id()));
         put.addColumn(cf, Bytes.toBytes("party_id"), Bytes.toBytes(value.getParty_id()));
         put.addColumn(cf, Bytes.toBytes("policy_id"), Bytes.toBytes(value.getPolicy_id()));

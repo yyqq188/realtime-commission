@@ -16,19 +16,19 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class BenefitInsured  implements Serializable {
 
-    private String list_id;
-    private String item_id;
-    private String insured_id;
-    private String entry_age;
-    private String entry_age_month;
-    private String policy_id;
-    private String order_id;
-    private String ems_version;
-    private String insert_time;
-    private String update_time;
-    private String insert_timestamp;
-    private String update_timestamp;
-    private String inserted_by;
-    private String updated_by;
-    private String job_class;
+    public String list_id;
+    public String item_id;
+    public String insured_id;
+    public String entry_age;
+    public String entry_age_month;
+    public String policy_id;
+    public String order_id;
+    public String ems_version;
+    public String insert_time;
+    public String update_time;
+    public String insert_timestamp;
+    public String update_timestamp;
+    public String inserted_by;
+    public String updated_by;
+    public String job_class;
 }

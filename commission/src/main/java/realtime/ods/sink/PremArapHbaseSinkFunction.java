@@ -16,6 +16,7 @@ public PremArapHbaseSinkFunction(){
     tableName = "t_prem_arap";}
     @Override
     public void handle(PremArap value, Context context, HTable table) throws Exception {
+        System.out.println("-----------------------------------------------");
         Put put = new Put(Bytes.toBytes(value.getItem_id()));
         put.addColumn(cf, Bytes.toBytes("list_id"), Bytes.toBytes(value.getList_id()));
         put.addColumn(cf, Bytes.toBytes("head_id"), Bytes.toBytes(value.getHead_id()));
